@@ -4,7 +4,7 @@
 # You can set these variables in ~/.profile or ~/.bash_profile if you have it as below:
 #
 # export FILE="ranger"
-# export TERMINAL="urxvt"
+# export TERMINAL="st"
 
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
@@ -32,11 +32,14 @@ bar {
         mode dock
         modifier None
 }
+# #---Program Bindings---# #
 
-#start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-#start dmenu
+
 bindsym $mod+d exec dmenu_run
+
+bindsym $mod+e exec firefox
+
 # #---Basic Bindings---# #
 bindsym $mod+Shift+Return       exec --no-startup-id samedir
 
@@ -60,7 +63,6 @@ bindsym $mod+Shift+t            gaps inner current set 15; gaps outer current se
 
 bindsym $mod+Shift+y            exec --no-startup-id i3resize left
 
-bindsym $mod+u                  exec --no-startup-id ddspawn tmuxdd
 bindsym $mod+Shift+u            exec --no-startup-id i3resize down
 
 bindsym $mod+Shift+i            exec --no-startup-id i3resize up
@@ -104,9 +106,7 @@ bindsym $mod+Ctrl+l             move workspace to output right
 bindsym $mod+z                  gaps outer current plus 5
 bindsym $mod+Shift+z            gaps outer current minus 5
 
-bindsym $mod+c                  exec --no-startup-id cabl
 
-bindsym $mod+v                  exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
 
 bindsym $mod+b                  bar mode toggle
 bindsym $mod+Shift+b            floating toggle; sticky toggle; exec --no-startup-id hover left
